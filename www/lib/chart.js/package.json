@@ -7,7 +7,7 @@
   "main": "src/chart.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chartjs/Chart.js.git"
+    "url": "git+https://github.com/chartjs/Chart.js.git"
   },
   "devDependencies": {
     "browserify": "^13.0.0",
@@ -46,5 +46,47 @@
   "dependencies": {
     "chartjs-color": "^2.0.0",
     "moment": "^2.10.6"
-  }
+  },
+  "gitHead": "d2035c7a15b8c3b3d92f9fdb54df40fd57259013",
+  "bugs": {
+    "url": "https://github.com/chartjs/Chart.js/issues"
+  },
+  "_id": "chart.js@2.3.0",
+  "scripts": {},
+  "_shasum": "40460e48e2c417c05fc3325cd84f7b000dc7d7d6",
+  "_from": "chart.js@latest",
+  "_npmVersion": "3.8.3",
+  "_nodeVersion": "5.10.1",
+  "_npmUser": {
+    "name": "chartjs-ci",
+    "email": "chartjs-ci@abysscorp.org"
+  },
+  "dist": {
+    "shasum": "40460e48e2c417c05fc3325cd84f7b000dc7d7d6",
+    "tarball": "https://registry.npmjs.org/chart.js/-/chart.js-2.3.0.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "chartjs-ci",
+      "email": "chartjs-ci@abysscorp.org"
+    },
+    {
+      "name": "etimberg",
+      "email": "evert.timberg+npm@gmail.com"
+    },
+    {
+      "name": "nnnick",
+      "email": "hello@nickdownie.com"
+    },
+    {
+      "name": "tannerlinsley",
+      "email": "tannerlinsley@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/chart.js-2.3.0.tgz_1474571261057_0.3575261142104864"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/chart.js/-/chart.js-2.3.0.tgz"
 }

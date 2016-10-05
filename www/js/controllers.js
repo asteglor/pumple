@@ -12,6 +12,21 @@ angular.module('starter.controllers', [])
  	$scope.override = { borderColor: '#000', borderWidth:['2px'] };
  	$scope.data2 = [62, 38];
 
+ 	$scope.value = 80;
+ 	$scope.value2 = 62;
+	$scope.options3 = {
+  displayPrevious: true,
+  barCap: 25,
+  trackWidth: 14,
+  barWidth: 14,
+  readOnly: true,
+  size:150,
+  unit:"%",
+  trackColor:'rgb(128, 1, 5)',
+  barColor:'rgb(13, 96, 26)',
+  textColor: 'rgb(203, 203, 203)'
+};
+
 })
 .controller('StartAppCtrl', function ($scope) {
 
