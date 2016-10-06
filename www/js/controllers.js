@@ -31,11 +31,37 @@ angular.module('starter.controllers', [])
 .controller('StartAppCtrl', function ($scope) {
 
 })
-.controller('StarterPageCtrl', function ($scope, $stateParams) {
+.controller('StarterPageCtrl', function ($scope, $stateParams, $cordovaBarcodeScanner, $http, $ionicModal) {
 	$scope.log_method = $stateParams.method;
 	$scope.data = "";
 	if($stateParams.method ==="qr"){
 		$scope.data = "qr";
+		$scope.leerCodigo =function(){
+			$scope.modal.show();
+			//Llamamos al plugin
+			$cordovaBarcodeScanner.scan()
+				//Si escanea algo, mostramos el texto de lo escaneado
+				.then ( function(imagenEscaneada){
+						//Realizamos una peticion GET con el id
+						$http.get('http://192.168.1.81:3000/'+ imagenEscaneada.text)
+							//OK
+							.success(function(data){
+								//Asignamos los datos recibidos a qrdata
+								$scope.qrdata= data.qrcode;
+								//Abrimos el modal
+								$scope.modal.show();
+
+							})
+							//Error
+							.error(function(error){
+								alert('Ha ocurrido un error al consultar los datos: '+error)
+							})
+				},
+				//Si hay un error
+				function(error){
+					alert("Ha ocurrido un error al escanear: "+ error);
+				});
+		}
 	}else if($stateParams.method =="sms"){
 		$scope.data = "sms";
 	}else{
