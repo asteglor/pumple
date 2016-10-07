@@ -1,0 +1,22 @@
+<ion-modal-view>
+			<!--Header con titulo y boton -->
+  		<ion-header-bar>
+				<!--Titulo-->
+   			<h1 class="title">Write your SMS code</h1>
+				<!--Boton de cierre -->
+				<div class="button button-clear" ng-click="modal.hide()">
+					<span class="icon ion-close"></span>
+				</div>
+  		</ion-header-bar>
+			<!--Contenido-->
+  		<ion-content>
+					<div class="list list-inset">
+			  <label class="item item-input">
+			    <input type="text" placeholder="SMS code">
+			  </label>
+			<div class="padding">
+        <button class="button button-block button-positive activated" ng-click="modal.hide()">Submit</button>
+      </div>
+			</div>
+		</ion-content>
+</ion-modal-view>
