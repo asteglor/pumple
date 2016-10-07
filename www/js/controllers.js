@@ -1,7 +1,15 @@
 angular.module('starter.controllers', [])
 
-.controller('BlankCtrl', function($scope) {
-
+.controller('BlankCtrl', function($scope, $cordovaBarcodeScanner) {
+	 $scope.scanBarcode = function() {
+        $cordovaBarcodeScanner.scan().then(function(imageData) {
+            alert(imageData.text);
+            console.log("Barcode Format -> " + imageData.format);
+            console.log("Cancelled -> " + imageData.cancelled);
+        }, function(error) {
+            console.log("An error happened -> " + error);
+        });
+    };
 })
 .controller('StatsCtrl', function ($scope) {
 	$scope.colors = ['#0D601A', '#800105'];
@@ -29,39 +37,54 @@ angular.module('starter.controllers', [])
 
 })
 .controller('StartAppCtrl', function ($scope) {
+	$scope.colors = ['#0D601A', '#800105'];
+	$scope.options = [{
+            size: {
+               		height: 1000,
+               		width: 400
+            	}
+        }]
+    $scope.labels = ['1', '2', '3', '4', '5', '6', '7', '2', '3', '4', '5', '6', '7', '2', '3', '4', '5', '6', '7', '2', '3', '4', '5', '6', '7'];
+    $scope.data = [
+      [65, -59, 80, 81, -56, 55, -40, -59, 80, 81, -56, 55, -59, 80, 81, -56, 55, -40, -59, 80, 81, -56, 55, -59, 80, 81, -56, 55, -40, -59, 80, 81, -56, 55,],
+      [28, 48, -40, 19, 86, 27, 90, -59, 80, 81, -56, 55, -40, -59, 80, 81, -56, 55, -59, 80, 81, -56, 55, -40, -59, 80, 81, -56, 55,]
+    ];
+
+    $scope.datasetOverride = [
+      {
+        label: "Line chart",
+        borderWidth: 1,
+        type: 'line',
+        lineTension:0,
+        fill:true,
+        pointRadius:0,
+        backgroundColor:'rgba(13, 96, 26, 0.39)',
+        hoverBackgroundColor: "rgba(255,99,132,0.4)",
+        hoverBorderColor: "rgba(255,99,132,1)"
+      },
+      {
+        label: "Line chart",
+        backgroundColor:'rgba(128, 1, 5, 0.39)',
+        fill:true,
+        borderWidth: 1,
+        pointRadius:0,
+        hoverBackgroundColor: "rgba(255,99,132,0.4)",
+        hoverBorderColor: "rgba(255,99,132,1)",
+        type: 'line',
+        lineTension:0
+      }
+    ];
+    $scope.width_chart = window.innerWidth*0.8;
+    $scope.height_chart = window.innerHeight*0.5;
+    console.log(window.innerHeight);
+    console.log($scope.height_chart);
 
 })
-.controller('StarterPageCtrl', function ($scope, $stateParams, $cordovaBarcodeScanner, $http, $ionicModal) {
+.controller('StarterPageCtrl', function ($scope, $stateParams) {
 	$scope.log_method = $stateParams.method;
 	$scope.data = "";
 	if($stateParams.method ==="qr"){
 		$scope.data = "qr";
-		$scope.leerCodigo =function(){
-			$scope.modal.show();
-			//Llamamos al plugin
-			$cordovaBarcodeScanner.scan()
-				//Si escanea algo, mostramos el texto de lo escaneado
-				.then ( function(imagenEscaneada){
-						//Realizamos una peticion GET con el id
-						$http.get('http://192.168.1.81:3000/'+ imagenEscaneada.text)
-							//OK
-							.success(function(data){
-								//Asignamos los datos recibidos a qrdata
-								$scope.qrdata= data.qrcode;
-								//Abrimos el modal
-								$scope.modal.show();
-
-							})
-							//Error
-							.error(function(error){
-								alert('Ha ocurrido un error al consultar los datos: '+error)
-							})
-				},
-				//Si hay un error
-				function(error){
-					alert("Ha ocurrido un error al escanear: "+ error);
-				});
-		}
 	}else if($stateParams.method =="sms"){
 		$scope.data = "sms";
 	}else{

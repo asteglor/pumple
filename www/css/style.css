@@ -119,3 +119,49 @@
 text{
 	font-style: italic;
 }
+.starter_width{
+	width: 48%;
+	margin: 0 auto;
+}
+.starter_title{
+	color:#fff;
+	text-align: center;
+	line-height: 3;
+	display: block;
+	font-weight: 600;
+}
+.starter_width a {
+	text-decoration: none;
+	color: #fff;
+	background: green;
+	display: block;
+	text-align: center;
+	font-weight: 600;
+	line-height: 3;
+}
+.graph_img img{
+	width:100%;
+}
+.bg_pumpable{
+	height: 14%;
+}
+.bg_pumpable img{
+	width: 100%;
+    margin-left: -3%;
+}
+.logo_pump img, .logo_dump img{
+	width:100%;
+}
+.logo_dump{
+	margin-top: -1.3rem;
+}
+.oclock img{
+	width:28%;
+}
+.oclock_title{
+	color:#fff;
+	font-size: .7rem;
+}
+.red_green_control img{
+	 height: 8.333%;
+}
