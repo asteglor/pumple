@@ -9,6 +9,9 @@
 .black_content{
 	background-color: #000; 
 }
+.blank_scroll {
+	    overflow-y: hidden;
+}
 /* .log_forms{
 	width: 12rem;
 	margin: 20% auto;
