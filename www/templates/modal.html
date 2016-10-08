@@ -1,8 +1,8 @@
-<ion-modal-view>
+<ion-modal-view class="modal_black">
 			<!--Header con titulo y boton -->
-  		<ion-header-bar>
+  		<ion-header-bar class="modal_black">
 				<!--Titulo-->
-   			<h1 class="title">Write your SMS code</h1>
+   			<h1 class="title modal_black">Write your SMS code</h1>
 				<!--Boton de cierre -->
 				<div class="button button-clear" ng-click="modal.hide()">
 					<span class="icon ion-close"></span>
@@ -10,12 +10,12 @@
   		</ion-header-bar>
 			<!--Contenido-->
   		<ion-content>
-					<div class="list list-inset">
-			  <label class="item item-input">
+					<div class="list list-dark list-inset black-input">
+			  <label class="item item-input black-input">
 			    <input type="text" placeholder="SMS code">
 			  </label>
 			<div class="padding">
-        <button class="button button-block button-positive activated" ng-click="modal.hide()">Submit</button>
+        <button class="button button-green button-block button-positive activated green-green" ng-click="modal.hide()">Submit</button>
       </div>
 			</div>
 		</ion-content>
